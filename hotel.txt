@@ -1,0 +1,4 @@
+79.99 2 Yes No No No
+69.99 1 No No No No
+119.99 4 Yes Yes No No
+89.99 2 Yes No No No
