@@ -8,7 +8,7 @@ package c9MISProject;
 
 public class GuestUser {
 
-	
+	boolean in = false;
 	public static void setReservation(){
 		// #TODO
 
@@ -21,11 +21,11 @@ public class GuestUser {
 	}
 	
 	public static void checkIn(){
-		
+		in = true;
 	}
 	
 	public static void checkOut(){
-		
+		in = false
 	}
 	
 	public static void printBill(){
