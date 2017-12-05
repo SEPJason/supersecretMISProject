@@ -89,7 +89,7 @@ public class GuestUser {
 	}
 	
 	public static void getReservation(){
-		System.out.println(room_Num +" "+ rte +" "+ bed_Count +" "+ has_Kitchen +" "+ handicap_Access +" "+ is_Booked +" "+ occup +" "+ needs_Upkeep); 
+		System.out.println((room_Num + 1) +" "+ rte +" "+ bed_Count +" "+ has_Kitchen +" "+ handicap_Access +" "+ is_Booked +" "+ occup +" "+ needs_Upkeep); 
 	}
 	
 	public static void checkIn() throws FileNotFoundException{
