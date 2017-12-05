@@ -8,7 +8,7 @@ import java.util.Scanner;
 /**
  * 
  * @author Jason Thomas
- *
+ * @author Chris Pingel
  */
 
 public class HotelMain {
