@@ -1,10 +1,10 @@
 1	79.99	2	Yes	No	No	No	No
-2	69.99	1	No	No	No	No	No
-3	119.99	4	Yes	Yes	No	No	No
+2	69.99	1	No	No	No	No	Yes
+3	119.99	4	Yes	Yes	No	No	Yes
 4	89.99	2	Yes	No	No	No	No
 5	99.99	2	Yes	Yes	No	No	No
-6	109.99	3	Yes	No	No	No	No
+6	109.99	3	Yes	No	No	No	Yes
 7	89.99	1	Yes	Yes	No	No	No
 8	109.99	4	No	Yes	No	No	No
-9	79.99	1	Yes	Yes	No	No	No
+9	79.99	1	Yes	Yes	No	No	Yes
 10	99.99	3	No	No	No	No	No

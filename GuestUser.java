@@ -36,9 +36,9 @@ public class GuestUser {
 		ArrayList<Integer> bedCount = new ArrayList<Integer>();
 		ArrayList<String> hasKitchen = new ArrayList<String>();
 		ArrayList<String> handicapAccess = new ArrayList<String>();
-		ArrayList<String> isBooked = new ArrayList<String>(); // could this be boolean
+		ArrayList<String> isBooked = new ArrayList<String>(); 
 		ArrayList<String> occupied = new ArrayList<String>();
-		ArrayList<String> needsUpkeep = new ArrayList<String>(); // same with this, boolean
+		ArrayList<String> needsUpkeep = new ArrayList<String>(); 
 		
 		while (ins.hasNext()) {
 			
@@ -62,7 +62,7 @@ public class GuestUser {
 			System.out.println("How many days will you be staying?");
 			num_Days = cmd.nextInt();
 			isBooked.set(room,"Yes");
-			
+			System.out.println("Room successfully booked!");
 			room_Num = room;
 			rte = rate.get(room);
 			bed_Count = bedCount.get(room);
@@ -119,6 +119,7 @@ public class GuestUser {
 			
 		}ins.close();
 		occupied.set(room_Num,"Yes");
+		System.out.println("Successfully checked in. Enjoy your stay!");
 		String n = "";
 		for(int i=0; i<10; i++){
 			n += roomNum.get(i)+"\t"+rate.get(i)+"\t"+bedCount.get(i)+"\t"+hasKitchen.get(i)+"\t"+handicapAccess.get(i)+"\t"+isBooked.get(i)+"\t"+occupied.get(i)+"\t"+needsUpkeep.get(i)+"\n";
@@ -140,9 +141,9 @@ public class GuestUser {
 		ArrayList<Integer> bedCount = new ArrayList<Integer>();
 		ArrayList<String> hasKitchen = new ArrayList<String>();
 		ArrayList<String> handicapAccess = new ArrayList<String>();
-		ArrayList<String> isBooked = new ArrayList<String>(); // could this be boolean
+		ArrayList<String> isBooked = new ArrayList<String>(); 
 		ArrayList<String> occupied = new ArrayList<String>();
-		ArrayList<String> needsUpkeep = new ArrayList<String>(); // same with this, boolean
+		ArrayList<String> needsUpkeep = new ArrayList<String>(); 
 		
 		while (ins.hasNext()) {
 			
@@ -157,19 +158,20 @@ public class GuestUser {
 			
 		}ins.close();
 		occupied.set(room_Num,"No");
+		System.out.println("Check out process complete. Thank you, and come back soon!");
 		String n = "";
 		for(int i=0; i<10; i++){
 			n += roomNum.get(i)+"\t"+rate.get(i)+"\t"+bedCount.get(i)+"\t"+hasKitchen.get(i)+"\t"+handicapAccess.get(i)+"\t"+isBooked.get(i)+"\t"+occupied.get(i)+"\t"+needsUpkeep.get(i)+"\n";
 		}
-		try{
+		try{ 
 		    PrintWriter writer = new PrintWriter("hotel.txt", "UTF-8");
 		    writer.print(n);
 		    writer.close();
 		} catch (IOException e) {}
 	}
 	
-	public static void printBill(){
-		System.out.println(rte*num_Days);
+	public static void printBill(){ // returns the total bill calculated by amount of days stayed and rate of the chosen room
+		System.out.println("Your total comes to: $" + rte*num_Days);
 
 	}
 	
