@@ -3,7 +3,7 @@ package c9MISProject;
 /**
  * 
  * @author Jason Thomas
- *
+ * @author Chris Pingel
  */
 public class ManagementUser {
 
