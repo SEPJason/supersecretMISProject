@@ -106,6 +106,8 @@ public class GuestUser {
 		System.out.println((room_Num + 1) +" "+ rte +" "+ bed_Count +" "+ has_Kitchen +" "+ handicap_Access +" "+ is_Booked +" "+ occup +" "+ needs_Upkeep); 
 	}
 	
+	/* Method for checking in. Reads and edits the "checked in" value in the text file */
+	
 	public static void checkIn() throws FileNotFoundException{
 		String inputFileName = "hotel.txt";
 		File inputFile = new File(inputFileName);
