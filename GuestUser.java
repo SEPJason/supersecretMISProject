@@ -6,6 +6,12 @@ package c9MISProject;
  *
  */
 
+/**
+ * 
+ * @author Jason Thomas, Ben Merz, Chris Pingel, Steve Weber
+ *
+ */
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -29,7 +35,7 @@ public class GuestUser {
 	
 	public static void setReservation() throws FileNotFoundException{
 		Scanner cmd = new Scanner(System.in);
-		String inputFileName = "hotel.txt";
+		String inputFileName = "bin/hotel.txt";
 		File inputFile = new File(inputFileName);
 		Scanner ins = new Scanner(inputFile);
 		
@@ -64,12 +70,20 @@ public class GuestUser {
 		/* Asks user which room they would like to book. Rooms, rates, and room info is displayed
 		and user enters number 1-10 for the room they would like to book. If room is already booked, an error message is displayed.*/
 		
-		System.out.println("Which room would you like to book?\nRoom# Rate Beds HasKitchen HandicapAccess IsBooked Occupied NeedsUpKeep");
+		System.out.println("Enter the room number you would like to book, or 0 to quit. (HA means HandicapAccess)\nRoom#	 Rate	Beds  Kitchen	HA    Booked Occupied NeedsUpKeep");
 		for(int i=0; i<10; i++){
 			System.out.println(roomNum.get(i)+"\t"+rate.get(i)+"\t"+bedCount.get(i)+"\t"+hasKitchen.get(i)+"\t"+handicapAccess.get(i)+"\t"+isBooked.get(i)+"\t"+occupied.get(i)+"\t"+needsUpkeep.get(i));
 		}
+		
 		int room = cmd.nextInt()-1;
-		if(isBooked.get(room).equals("No")){
+		if(room == -1){
+			System.out.println("Back to main menu.");
+		}
+		else if(room < -1 || room > 10){
+			System.out.println("That's not a valid room, please enter another booking!");
+			room = cmd.nextInt();
+		}
+		else if(isBooked.get(room).equals("No")){
 			System.out.println("How many days will you be staying?");
 			num_Days = cmd.nextInt();
 			isBooked.set(room,"Yes");
@@ -87,7 +101,7 @@ public class GuestUser {
 				n += roomNum.get(i)+"\t"+rate.get(i)+"\t"+bedCount.get(i)+"\t"+hasKitchen.get(i)+"\t"+handicapAccess.get(i)+"\t"+isBooked.get(i)+"\t"+occupied.get(i)+"\t"+needsUpkeep.get(i)+"\n";
 			}
 			try{
-			    PrintWriter writer = new PrintWriter("hotel.txt", "UTF-8");
+			    PrintWriter writer = new PrintWriter("bin/hotel.txt", "UTF-8");
 			    writer.print(n);
 			    writer.close();
 			} catch (IOException e) {}
@@ -109,7 +123,7 @@ public class GuestUser {
 	/* Method for checking in. Reads and edits the "checked in" value in the text file */
 	
 	public static void checkIn() throws FileNotFoundException{
-		String inputFileName = "hotel.txt";
+		String inputFileName = "bin/hotel.txt";
 		File inputFile = new File(inputFileName);
 		Scanner ins = new Scanner(inputFile);
 		
@@ -141,7 +155,7 @@ public class GuestUser {
 			n += roomNum.get(i)+"\t"+rate.get(i)+"\t"+bedCount.get(i)+"\t"+hasKitchen.get(i)+"\t"+handicapAccess.get(i)+"\t"+isBooked.get(i)+"\t"+occupied.get(i)+"\t"+needsUpkeep.get(i)+"\n";
 		}
 		try{
-		    PrintWriter writer = new PrintWriter("hotel.txt", "UTF-8");
+		    PrintWriter writer = new PrintWriter("bin/hotel.txt", "UTF-8");
 		    writer.print(n);
 		    writer.close();
 		} catch (IOException e) {}
@@ -150,7 +164,7 @@ public class GuestUser {
 	/* Method for checking out. Reads and edits text file for room that is being checked out. */
 	
 	public static void checkOut() throws FileNotFoundException{
-		String inputFileName = "hotel.txt";
+		String inputFileName = "bin/hotel.txt";
 		File inputFile = new File(inputFileName);
 		Scanner ins = new Scanner(inputFile);
 		
@@ -182,7 +196,7 @@ public class GuestUser {
 			n += roomNum.get(i)+"\t"+rate.get(i)+"\t"+bedCount.get(i)+"\t"+hasKitchen.get(i)+"\t"+handicapAccess.get(i)+"\t"+isBooked.get(i)+"\t"+occupied.get(i)+"\t"+needsUpkeep.get(i)+"\n";
 		}
 		try{ 
-		    PrintWriter writer = new PrintWriter("hotel.txt", "UTF-8");
+		    PrintWriter writer = new PrintWriter("bin/hotel.txt", "UTF-8");
 		    writer.print(n);
 		    writer.close();
 		} catch (IOException e) {}
@@ -194,3 +208,4 @@ public class GuestUser {
 	}
 	
 }
+
