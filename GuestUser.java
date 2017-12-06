@@ -25,11 +25,19 @@ public class GuestUser {
 	public static String occup;
 	public static String needs_Upkeep;
 	
+	/* Method for setting reservations. Reads and edits text file based on user inputs*/
+	
 	public static void setReservation() throws FileNotFoundException{
 		Scanner cmd = new Scanner(System.in);
 		String inputFileName = "hotel.txt";
 		File inputFile = new File(inputFileName);
 		Scanner ins = new Scanner(inputFile);
+		
+	/* Unfortunately, in order for the guestUser class to work with the main,
+	we had to redundantly write out the array lists for each method. We could not 
+	figure out a way to make this class work without these redundancies without 
+	completely restructuring the program. The portion of code starting here and ending 
+	at the next section of notes will appear in every method.*/
 		
 		ArrayList<Integer> roomNum = new ArrayList<Integer>();
 		ArrayList<Double> rate = new ArrayList<Double>();
@@ -52,6 +60,9 @@ public class GuestUser {
 			needsUpkeep.add(ins.next());
 			
 		}ins.close();
+		
+		/* Asks user which room they would like to book. Rooms, rates, and room info is displayed
+		and user enters number 1-10 for the room they would like to book. If room is already booked, an error message is displayed.*/
 		
 		System.out.println("Which room would you like to book?\nRoom# Rate Beds HasKitchen HandicapAccess IsBooked Occupied NeedsUpKeep");
 		for(int i=0; i<10; i++){
@@ -87,6 +98,9 @@ public class GuestUser {
 		
 
 	}
+	
+	/* Method for checking reservation. Similar to setReservation, however, this method merely checks the text file to see if a
+	particular room is booked or not */
 	
 	public static void getReservation(){
 		System.out.println((room_Num + 1) +" "+ rte +" "+ bed_Count +" "+ has_Kitchen +" "+ handicap_Access +" "+ is_Booked +" "+ occup +" "+ needs_Upkeep); 
@@ -130,6 +144,8 @@ public class GuestUser {
 		    writer.close();
 		} catch (IOException e) {}
 	}
+	
+	/* Method for checking out. Reads and edits text file for room that is being checked out. */
 	
 	public static void checkOut() throws FileNotFoundException{
 		String inputFileName = "hotel.txt";
